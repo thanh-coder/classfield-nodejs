@@ -1,0 +1,10 @@
+<h1 style="width: 100%;position: absolute;left: 30%;top:86px;">
+      <p style="margin-left:10%;">thông tin thành viên:</p>
+      <div class="view" style="border:1px solid black;width:600px;text-align:center;">
+        <p style="padding-left:30px;text-align:center;border-bottom:1px solid black;">name: <%= user[0].name %> </p>
+        <p style="padding-left:30px;text-align:center;border-bottom:1px solid black;">phone: <%= user[0].phone %>  </p>
+        <p style="padding-left:30px;text-align:center;border-bottom:1px solid black;">email: <%= user[0].email %>  </p>        
+        <img  src="<%= user[0].avatar %>" style="object-fit:cover,object-position:center;width:100%;">
+        </div>
+      <a class="btn btn-primary" href="/users" style="width:77px;margin-top:5px;" > go back</a>
+    </h1>

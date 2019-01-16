@@ -1,0 +1,79 @@
+<div class="container-user pt-5"></div>
+<h1 style="position: absolute;     top: 104px;
+left: 213px;">
+<!-- <span class="mr-right">add users</span>  alert alert-success-->
+<% if(admin) { %>
+    
+<a href="/users/create" class="btn btn-primary" style="width:83px">add user</a>
+
+<% }else{ %>
+    <div class="alert alert-danger admin" id="admin" style="font-size: 16px; margin-left: 130px; position: relative;">
+        <strong>Warning!</strong> chỉ có ADMIN mới có quyền truy cập chức năng này
+    </div>
+     <a href="#" class="btn btn-primary add-user" style="width:83px;position: absolute; top: 6px;left: -1px;">add user</a>
+
+    
+
+     <% } %>
+</h1>
+<div class="d-flex align-items-center" style="justify-content:flex-end;display: flex;align-items: center">
+    <form class="d-flex" action="/users/search" method="GET">
+      <input class="form-control" type="text" name="q" value="">
+      <button class="btn btn-primary ml-2">Search</button>
+    </form>
+  </div>
+<div class="container-user">
+ 
+  <table class="table" style="width:1111px">
+     <tr>
+         <td>Edit</td>
+         <td>Avatar</td>
+         <td>Name</td>
+         <td>Phone</td>
+         <td>Email</td>
+         <td>Action</td>
+         <td>Delete</td>
+     </tr>
+     <% users.forEach(function(user) { %>
+        <tr>
+            <td>
+               <% if(admin) { %>
+                <a href="/users/edit/<%= user._id %>" class="" >
+                    <i class="fas fa-edit"></i>   
+                </a>    
+                                     
+                <% }else{ %>
+                    <a href="#" class="edit_admin" >
+                        <i class="fas fa-edit"></i> 
+                </a>    
+                    
+                <% } %>
+            
+            </td>
+            <td>
+                <img src="<%= user.avatar %>" width="60" alt="">
+            </td>
+            <td><%= user.name %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.email %></td>
+            <td>
+                <a href="/users/<%= user._id %>">view detail</a>
+            </td>
+            <td>
+                    <% if(admin) { %>
+                        <a href="/users/delete/<%= user._id %>" class="">
+                        <i class="fas fa-trash-alt"></i>
+                        </a>    
+                                             
+                        <% }else{ %>
+                          <a href="#" class="delete_admin">
+                          <i class="fas fa-trash-alt"></i>  
+                        </a>
+                            
+                     <% } %>
+              
+            </td>
+        </tr>
+    <% }); %>
+  </table>
+</div>

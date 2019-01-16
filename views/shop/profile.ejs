@@ -1,0 +1,40 @@
+
+<div class="row">
+ <div class="col-xs-10 col-sm-10 col-md-8 col-lg-10 col-md-offset-2 " style="margin-top: 30px;"> 
+    
+    <h1 style="text-align: center">User Profile</h1>
+    <hr>
+    <h2>My orders</h2>    
+    <% if (orders.length > 0) { %>
+      <% orders.forEach(function(order) { %>
+     
+            <div class="panel panel-default box" style="border: 1px solid #ddd;margin-bottom: 22px;padding: 43px 18px; position: relative;">
+                <div class="panel-body">
+
+                    <ul class="list-group">
+                      <% order.items.forEach(function(a) { %>
+
+                        <li class="list-group-item">
+                            <span class="badge badge-secondary" style="border-radius:50%"><%= a.price %></span>
+                            <%= a.item.title %>|<%= a.qty %>units
+                        </li>
+                       <% }) %>                        
+                    </ul>
+
+                
+                </div>
+                    <div class="panel-footer alert alert-dark" role="alert style="position: absolute;  bottom: 0px;height: 39px; padding-top: 9px">
+                       <strong>total Price:$<%= order.cart.totalPrice %></strong>
+                    </div>
+              </div>    
+                      
+         <% }) %>     
+  <% } else { %>
+   <h2>Total price:<span class="badge badge-secondary">$0</span></h2>
+
+  <h2><span class="badge badge-info">bạn chưa mua bất cứ sản phẩm nào</span></h2>   
+  <% }  %>
+     
+      
+  </div> 
+</div>

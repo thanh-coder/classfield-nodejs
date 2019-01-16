@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="top:1px;background-color:blue">
+  <a class="navbar-brand" href="#" ><%= __ ('Classifield Website') %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="padding-top:-15px">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="btn btn-success" role="button" href="#"><%= __ ('Home') %> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item"  style="padding: 0px 11px">
+        <a class="btn btn-outline-success" href="/shop" role="button">Sản phẩm</a>
+
+      </li>
+     
+      <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="<%= __ ('Search') %>" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= __ ('Submit') %></button>
+    </form>
+      <li class="nav-item">
+        <a class="nav-link disabled" style="padding-left:15px" href="#">Disabled</a>
+      </li>
+      <li class="nav-item nav-item-user" style="padding-left:15px"> 
+       <a href='<%= accsess_user == true ? "/users" : "/thanh-vien/dang-nhap" %>' class="navbar-text" style="color: green;font-weight: bold;"> <%= count %></a>
+      </li>
+      <li class="page_cout">
+        <a href="#" class="user_page">click để xem thông tin chi tiết<br /> các thành viên trong Page </a>
+
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right" style="margin-right:45px">
+        <li class="hover-shop" style="position: absolute;right: 261px;top: 17px;">
+            <a href="/shop/shopping-cart/" style="text-decoration: none">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                <span style="border-radius:50%" class="badge badge-info"><%= session %></span>
+            </a>
+        </li>
+        <li class="page-shop">
+        <a href="#" class="user-shop">click để thanh toán <br /> hóa đơn đã mua hàng </a>
+
+        </li>
+    
+           <li class="dropdown" style="padding-top:8px;padding-right:12px">
+                <a href="#" class="dropdown-toggle" style="text-decoration:none" data-toggle="dropdown"><img src="/image/<%= clanguage %>.png" /> <%= clanguage %><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                 <% languages.forEach((language) => { %>
+                    <li><a  href="/<%= language %>"><img src="/image/<%= language %>.png" /> <%= language %></a></li>
+                 <%  }) %>
+                </ul>
+            </li>
+          
+
+
+     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= __ ('Account') %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <% if(logged) { %>
+        <% if(admin) { %>
+        <a class="dropdown-item" href="/backoffice"><%= __ ('Profile') %></a>
+        <% } %>
+        
+          
+        <a class="dropdown-item" href="/shop/profile"><%= __ ('Receipt-client') %></a>
+        <a class="dropdown-item" href="/thanh-vien/dang-thoat"><%= __ ('Logout') %></a>
+        <a class="dropdown-item" href="/backoffice/login"><%= __ ('Admin') %></a>
+        <div class="dropdown-divider"></div>
+        <% }else { %>
+        <% if(admin) { %>
+        <a class="dropdown-item" href="/backoffice"><%= __ ('Profile') %></a>
+        <% } %>
+        <a class="dropdown-item" href="/thanh-vien/dang-nhap"><%= __ ('Login') %></a>
+        <a class="dropdown-item" href="/thanh-vien/dang-ky"><%= __ ('Register') %></a>
+        <a class="dropdown-item" href="/backoffice/login"><%= __ ('Admin') %></a>
+        <% } %>
+        </div>
+    </li>
+
+    <li>
+      <span style="transform:scale(2.5);margin-right:20px" class="image_face">
+      <i class="fas fa-user-circle"> </i>
+      </span>
+      <a href="#" class="user"><%= user %></a>
+   
+      </li>
+  </ul>
+
+  </div>
+</nav>

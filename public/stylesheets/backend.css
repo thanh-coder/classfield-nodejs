@@ -1,0 +1,12 @@
+form legend {
+    font-size: 1.5em !important;
+}
+#vitualKeyboad {
+    margin-bottom: 20px !important;
+}
+#vitualKeyboad > span {
+    /* margin-right: 2px !important; */
+    height:40px;
+    text-align:center !important;
+    width: 70px;
+}

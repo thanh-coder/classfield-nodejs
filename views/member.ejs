@@ -1,0 +1,64 @@
+
+<section class="login ">
+    <div class="container">
+        <div class="row" style="position:relative">
+            <div class="col-sm-6 col-sm-offset-3" style="position:apsolute;left:25%">
+              
+                <div class="login-panel widget">
+                    <form id="frmRegister" method="POST" style="margin-top:100px" action="/thanh-vien/dang-ky">
+                       
+                    <div class="login-body mt-30" >
+                          <div class="row mb-2 mt-5">
+                               
+                          <% if(hasErrors){ %>
+                          <div class="alert alert-danger" style="width:92%;left:18px">
+                             <% messages.forEach(function(mes){ %>
+                                  <p><%= mes %> </p>
+                             <% }) %>
+                          </div>
+                          <% } %>
+                                <div class="col-sm-6">
+                                    <input type="text" name="firstname" placeholder="Họ" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" name="lastname" placeholder="Tên" class="form-control">
+                                </div>
+                                
+                          </div>
+
+                            <div class="form-group">
+                                <input type="text" name="email" placeholder="Địa chỉ Email" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" placeholder="Mật khẩu" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="confirmpassword" placeholder="Nhập lại mật khẩu" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox checkbox-primary pull-left">
+                                    <input id="checkbox2" type="checkbox" name="accept" value="1">
+                                    <label for="checkbox2">Tôi chấp thuận với những điều khoản của <strong>Classifield Website</strong></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="hidden" name="_csrf" value=<%= csrfToken %> />
+                                <button class="btn btn-block btn-lg btn-primary">Đăng ký thành viên</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <p class="text-center"><a href="/thanh-vien/dang-nhap"><strong>Tôi đã có tài khoản? </strong></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Register -->
+
+<!-- Footer -->
+<!-- End Footer -->

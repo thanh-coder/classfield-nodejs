@@ -1,0 +1,52 @@
+
+<% if (products && products.length > 1) { %> 
+<div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 78px;">
+    
+    <div class="col-xs-6 col-sm-6 col-md-6  col-sm-offset-3" style="text-align: center;">
+    
+    <ul class="list-group">
+        <% products.forEach(function(product){ %>
+       
+        <li class="list-group-item" style="position: relative;">
+           <span class="badge badge-secondary" style="position: absolute; right: 9px;top: 20px;"> <%= product.qty %></span>
+           <strong><%= product.item.title %></strong>
+           
+           <span class="badge badge-success">$<%= product.price %></span>
+           <div class="btn-group" style="margin-left: 32px;">
+                <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" >action<span class="caret"></span></button>
+                <ul class="dropdown-menu" style="text-align:center">
+                    <li><a style="text-decoration:none" href="/shop/reduce/<%= product.item._id %>">Reduce by 1</a></li>
+                    <li><a style="text-decoration:none" href="/shop/remove/<%= product.item._id %>">Remave All</a></li>
+                </ul>
+            </div>
+           
+        </li>
+          <% }) %>
+
+    </ul>
+    
+        
+    </div>
+    
+</div>
+
+
+<div class="row" style="display: flex;justify-content: center;align-items: center;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  col-md-offset-3  col-sm-offset-3" style="text-align: center;">
+        <strong>total:<%= totalPrice %></strong>
+    </div>
+</div>
+<hr>
+<div class="row" style="display: flex;justify-content: center;align-items: center;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  col-md-offset-3  col-sm-offset-3"  style="text-align: center;">
+       
+       <a href="/shop/checkout" type="button" class="btn btn-success">checkout</a>
+    </div>
+</div>
+ <% } else { %>
+<div class="row" style="display: flex;justify-content: center;align-items: center;margin-top: 100px;font-size: 25px;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  col-md-offset-3  col-sm-offset-3"  style="text-align: center;">
+    <span class="badge badge-pill badge-danger"><strong>no items in cart:</strong></span>
+    </div>
+</div>
+ <% } %>

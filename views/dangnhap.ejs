@@ -1,0 +1,60 @@
+
+<div class="row" style="position:relative">
+<div class="col-sm-6 col-sm-offset-3" style="position:apsolute;left:25%">
+ 
+ <form action="/thanh-vien/dang-nhap" method="POST" style="margin-top:80px" class="form-horizontal " role="form">
+
+         <div class="form-group">
+             <legend>Member Login <span class="pull-right text-center mr-20"  style="margin-left:160px"><a href="/thanh-vien/dang-ky">Create new account</a></span></legend>
+         </div>
+        
+         
+         <div class="form-group">
+         <legend> Create a new profile</legend>
+         </div>
+
+         <div class="form-group">
+             <div class="row">
+
+                 <div class="col-sm-6">
+                     <button onclick="window.location.href='/thanh-vien/facebook'" type="button" class="btn-fb btn btn-default col-sm-12">Login by Facebook</button>
+                 </div>
+                 <div class="col-sm-6">
+                     <button onclick="window.location.href='/thanh-vien/google'" type="button" class="btn-gg btn btn-default col-sm-12">Login by Google</button>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="loginOr text-center col-sm-12">Or</div>
+         </div>
+         <% if(hasErrors){ %>
+         <div class="alert alert-danger">
+            <% messages.forEach(function(mes){ %>
+                 <p><%= mes %> </p>
+            <% }) %>
+         </div>
+         <% } %>
+
+         <div class="form-group">
+             <label for="email">Email Address</label>
+             <input type="text" name="email" class="form-control" id="email" placeholder="Input your email address" />
+         </div>
+
+         <div class="form-group">
+             <label for="password">Password</label>
+             <input type="password" name="password" class="form-control" id="password" placeholder="Input your password" />
+         </div>
+ 
+         <div class="form-group">
+             <div class="checkbox">
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                 <button type="submit" class="btn btn-block btn-lg btn-primary">login</button>
+             </div>
+         </div>
+ </form>
+ 
+</div>
+</div>
+
+

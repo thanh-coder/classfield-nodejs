@@ -1,0 +1,71 @@
+
+<div class="row" style="margin-top:30px;display:flex;" >
+<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3" >
+ <h1 class="badge badge-primary" style="width: 125px;
+ text-align: center;margin-left: 116px;height: 35px;line-height: 25px;font-size: 20px;margin-bottom: 28px;">checkout</h1>
+ <h4>your total:$<%= total %></h4>
+ <% if (noError) {%> 
+ <div  id="charge-error" class="alert alert-danger hidden" style="display:none">
+  </div>
+<% } else {  %>
+<div  id="charge-error" class="alert alert-danger hidden" style="">
+<%= errMsg %>
+</div>
+
+  <% } %>
+  <form action="/shop/checkout" method="POST" id="checkout-form" class="form-horizontal" role="form">
+        
+    
+                 <div class="form-group">
+                    <label for="name">Name</label> <br>
+                    <input class="form-control" type="text"  id="name" required name="name">
+                 </div>
+                 <div class="form-group">
+                    <label for="address">Address</label> <br>
+                    <input class="form-control" type="text"  id="address" required name="address">
+                 </div>
+                 <div class="form-group">
+                    <label for="card-name">Cart holder name</label><br>
+                    <input class="form-control" type="text"  id="card-name" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="card-number">Credit card number</label><br>
+                    <input class="form-control" type="text"  id="card-number" required>
+                 </div>
+                <div class="row">
+                    <div class="col-md-6">  
+                        <div class="form-group">
+                            <label for="card-expiry-month">Expirination month</label>
+                            <input class="form-control" type="text"  id="card-expriry-month" required>
+                        </div>
+                     </div> 
+                     <div class="col-md-6">  
+                        <div class="form-group">
+                            <label for="card-expiry-year">Expirination year</label>
+                            <input class="form-control" type="text"  id="card-expiry-year" required>
+                        </div>
+                     </div>     
+            </div>
+            <div class="col-xs-12 ">
+                 <div class="form-group">
+                    <label for="card-cvc">CVC</label>
+                    <input class="form-control" type="text"  id="card-cvc" required>
+                 </div>
+            </div>
+            
+            <button type="submit" class="btn btn-success" style="margin-left: 128px;">buy now</button>
+            
+
+        
+         
+ 
+        
+ </form>
+    
+</div>
+</div>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script type = "text/javascript" src = "/js/jquery-3.2.1.min.js"> </ script>
+<script src="/js/checkout.js"></script>
+
